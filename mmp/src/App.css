@@ -1,0 +1,9 @@
+:root{
+    --font:"Jersey 10", sans-serif;
+    --primary-color: #292929;
+    --secondary-color:#BB86FC;
+}
+
+body{
+    background-color: var(--primary-color);
+}
