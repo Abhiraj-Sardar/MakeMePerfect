@@ -11,7 +11,7 @@ export const Loader = () => {
     useGSAP(()=>{
         gsap.to("svg",
             {
-                attr:{viewBox:"0 0 1200 0"  },
+                attr:{viewBox:"0 0 1200 0"},
                 duration:2.5,
                 delay:1,
                 ease: "expoScale(0.5,7,none)",
