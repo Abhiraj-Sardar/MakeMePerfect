@@ -1,0 +1,10 @@
+.sprint-container{
+    
+    /* background-color: rgb(49, 147, 233); */
+    margin-top:1rem;
+    padding: 1rem;
+    display: flex;
+    gap:12px    ;
+    flex-wrap: wrap;
+    position: relative;
+}

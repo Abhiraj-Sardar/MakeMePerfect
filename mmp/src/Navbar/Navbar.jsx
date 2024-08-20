@@ -5,24 +5,25 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import LockIcon from '@mui/icons-material/Lock';
 import CodeIcon from '@mui/icons-material/Code';
+import LinearProgress from '@mui/material/LinearProgress';
+import Box from '@mui/material/Box';
+
 import './Css/Navbar.css';
 import { Backdrop } from "@mui/material";
 import { AddGoalForm } from "../UserForm/AddGoalForm";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [openBackDrop,setOpenBackDrop]=useState(false);
+    const [openBackDrop, setOpenBackDrop] = useState(false);
+    const [submit, setSubmit] = useState(false);
+
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    const openForm =(e)=>{
+    const openForm = (e) => {
         e.preventDefault();
         setOpenBackDrop(true);
-    }
-
-    const closeBackDrop =()=>{
-        setOpenBackDrop(false);
     }
 
     return (
@@ -34,11 +35,11 @@ const Navbar = () => {
                         className="nav-links"
                         onClick={toggleMenu}
                         variant="outlined"
-                        sx={{ color: "#fff", borderColor: "var(--secondary-color)",fontFamily:"var(--font)",fontSize:"20px",letterSpacing:"5px"}}
+                        sx={{ color: "#fff", borderColor: "var(--secondary-color)", fontFamily: "var(--font)", fontSize: "20px", letterSpacing: "5px" }}
                     >
                         🚀Make Me Perfect
                     </Button>
-                    
+
                 </a>
                 <div className="menu-icon" onClick={toggleMenu}>
                     <i className={isMenuOpen ? 'fas fa-times' : 'fas fa-bars'}></i>
@@ -51,7 +52,7 @@ const Navbar = () => {
                             onClick={openForm}
                             variant="outlined"
                             startIcon={<AddIcon />}
-                            sx={{ color: "#fff",backgroundColor:"var(--secondary-color);",borderColor: "var(--secondary-color)" ,fontFamily:"var(--font)", fontSize:"16px",letterSpacing:"2px"}}
+                            sx={{ color: "#fff", backgroundColor: "var(--secondary-color);", borderColor: "var(--secondary-color)", fontFamily: "var(--font)", fontSize: "16px", letterSpacing: "2px" }}
                         >
                             Add Sprint
                         </Button>
@@ -64,7 +65,7 @@ const Navbar = () => {
                             onClick={toggleMenu}
                             variant="outlined"
                             startIcon={<LockIcon />}
-                            sx={{ color: "#fff",backgroundColor:"var(--secondary-color);", borderColor: "var(--secondary-color)" ,fontFamily:"var(--font)", fontSize:"16px",letterSpacing:"2px"}}
+                            sx={{ color: "#fff", backgroundColor: "var(--secondary-color);", borderColor: "var(--secondary-color)", fontFamily: "var(--font)", fontSize: "16px", letterSpacing: "2px" }}
                         >
                             Lock Sprint
                         </Button>
@@ -76,7 +77,7 @@ const Navbar = () => {
                             onClick={toggleMenu}
                             variant="outlined"
                             startIcon={<DeleteIcon />}
-                            sx={{ color: "#fff",backgroundColor:"var(--secondary-color);", borderColor: "var(--secondary-color)" ,fontFamily:"var(--font)", fontSize:"16px",letterSpacing:"2px"}}
+                            sx={{ color: "#fff", backgroundColor: "var(--secondary-color);", borderColor: "var(--secondary-color)", fontFamily: "var(--font)", fontSize: "16px", letterSpacing: "2px" }}
                         >
                             Delete Sprint
                         </Button>
@@ -88,7 +89,7 @@ const Navbar = () => {
                             onClick={toggleMenu}
                             variant="outlined"
                             startIcon={<CodeIcon />}
-                            sx={{ color: "#fff",backgroundColor:"var(--secondary-color);", borderColor: "var(--secondary-color)",fontFamily:"var(--font)", fontSize:"16px",letterSpacing:"2px" }}
+                            sx={{ color: "#fff", backgroundColor: "var(--secondary-color);", borderColor: "var(--secondary-color)", fontFamily: "var(--font)", fontSize: "16px", letterSpacing: "2px" }}
                         >
                             Developer Info
                         </Button>
@@ -96,11 +97,25 @@ const Navbar = () => {
                 </ul>
 
                 <Backdrop
-                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                    sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                     open={openBackDrop}
-                    //
+                //
                 >
-                    <AddGoalForm setOpenBackDrop={setOpenBackDrop}/>
+                    {
+                        submit 
+                        ? 
+                        (<Box sx={{ width: '100%', position: 'absolute', top: "0" }}>
+                            <LinearProgress />
+                        </Box>)
+                        :
+                        (<p></p>)
+                    }
+
+
+                    <AddGoalForm
+                        setOpenBackDrop={setOpenBackDrop}
+                        setSubmit={setSubmit}
+                    />
                 </Backdrop>
 
             </div>

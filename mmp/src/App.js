@@ -1,8 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import { Loader } from './Loader/Loader';
-import Navbar from './Navbar/Navbar';
 import { useEffect, useState } from 'react';
+import { Home } from './Home/Home';
 
 function App() {
 
@@ -20,8 +19,9 @@ function App() {
   return (
     <div className="App">
       
-      {isMounted && <Loader />}
-      {loadHomePage && <Navbar/>}
+      {/* {isMounted && <Loader />}
+      {loadHomePage && <Home/>} */}
+      
     </div>
   );
 }

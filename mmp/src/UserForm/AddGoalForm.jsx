@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import CloseIcon from '@mui/icons-material/Close';
 import InputLabel from '@mui/material/InputLabel';
@@ -10,23 +10,29 @@ import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
 import LoadingButton from '@mui/lab/LoadingButton';
 
+
 import "./Css/AddGoalForm.css"
 
 export const AddGoalForm = (props) => {
-    const [load,setLoad]=useState(false);
+
+    const [load, setLoad] = useState(false);
 
     const closeForm = () => {
         props.setOpenBackDrop(false);
         setLoad(false);
+        props.setSubmit(false);
     }
 
-    const handleSubmit=(e)=>{
+    const handleSubmit = (e) => {
 
         e.preventDefault();
+
         setLoad(true);
-        setTimeout(()=>{
+        props.setSubmit(true);
+
+        setTimeout(() => {
             closeForm();
-        },2000)
+        }, 2000)
 
     }
 
@@ -67,32 +73,32 @@ export const AddGoalForm = (props) => {
                         <MenuItem value="">
                             <em>None</em>
                         </MenuItem>
-                        <MenuItem value={7}>7</MenuItem>
-                        <MenuItem value={10}>10</MenuItem>
-                        <MenuItem value={20}>20</MenuItem>
-                        <MenuItem value={30}>30</MenuItem>
-                        <MenuItem value={60}>60</MenuItem>
-                        <MenuItem value={100}>100</MenuItem>
+                        <MenuItem value={7}>7 Days</MenuItem>
+                        <MenuItem value={10}>10 Days</MenuItem>
+                        <MenuItem value={20}>20 Days</MenuItem>
+                        <MenuItem value={30}>30 Days</MenuItem>
+                        <MenuItem value={60}>60 Days</MenuItem>
+                        <MenuItem value={100}>100 Days</MenuItem>
                     </Select>
                     <FormHelperText>Required</FormHelperText>
                 </FormControl>
-                
+
                 {load
                     ?
-                    (<LoadingButton loading 
-                     sx={{position:"absolute",bottom:"10px",right:"10px"}}
-                    variant="outlined">Submit</LoadingButton>)
+                    (<LoadingButton loading
+                        sx={{ position: "absolute", bottom: "10px", right: "10px" }}
+                        variant="outlined">Submit</LoadingButton>)
                     :
-                    (<Button 
-                    variant="contained" 
-                    endIcon={<SendIcon />}
-                    type='submit'
-                    
-                    sx={{position:"absolute",bottom:"10px",right:"10px"}}
+                    (<Button
+                        variant="contained"
+                        endIcon={<SendIcon />}
+                        type='submit'
+
+                        sx={{ position: "absolute", bottom: "10px", right: "10px" }}
                     >
                         Send
                     </Button>)}
-                
+
             </form>
 
             <CloseIcon
@@ -106,6 +112,7 @@ export const AddGoalForm = (props) => {
                     cursor: "pointer"
                 }} />
 
+            
         </div>
     )
 }
