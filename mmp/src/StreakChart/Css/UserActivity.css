@@ -1,0 +1,36 @@
+.activity-container h1{
+    text-align: center;
+    font-family: var(--font);
+    font-size: 132px;
+    color: aliceblue;
+    animation: blink 2s ease-in infinite alternate;
+    position: relative;
+    z-index: -100;
+}
+
+.activity-container .row .streak-chart{
+    /* background-color: #2C2C61; */
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-container .row .streak-graph{
+    /* background-color: aliceblue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.activity-container .row .streak-chart .btn-container{
+    width: 100%;
+    text-align: center;
+}
+@keyframes blink {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0.3;
+    }
+}

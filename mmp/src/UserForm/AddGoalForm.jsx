@@ -69,8 +69,9 @@ export const AddGoalForm = (props) => {
                         label="No of Days"
                         // onChange={handleChange}
                         color='secondary'
+                        
                     >
-                        <MenuItem value="">
+                        <MenuItem value="" >
                             <em>None</em>
                         </MenuItem>
                         <MenuItem value={7}>7 Days</MenuItem>

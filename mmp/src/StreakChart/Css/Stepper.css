@@ -1,0 +1,16 @@
+.streak-container{
+    /* background-color: red; */
+    /* height: 400px; */
+    /* width:50%; */
+    display: flex;
+    gap:1rem;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.streak-container .day-box{
+    height:20px;
+    width:5%;
+    background-color: rgba(196, 209, 209, 0.773);
+    border-radius: 10px;
+}

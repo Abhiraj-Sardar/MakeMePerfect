@@ -73,6 +73,7 @@ const Navbar = () => {
                     <li className="nav-item">
                         <Button
                             href="/about"
+                            disabled={true}
                             className="nav-links"
                             onClick={toggleMenu}
                             variant="outlined"

@@ -4,8 +4,8 @@ import "./Css/Sprints.css"
 export const Sprints = () => {
   return (
     <div className="sprint-container container-fluid">
-        <Card/>
-        <Card/>
+        <Card dest={"/sprint100"}/>
+        <Card dest={"/sprint100"}/>
     </div>
   )
 }

@@ -2,6 +2,8 @@ import './App.css';
 import { Loader } from './Loader/Loader';
 import { useEffect, useState } from 'react';
 import { Home } from './Home/Home';
+import { UserActivity } from './StreakChart/UserActivity';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 
@@ -19,8 +21,14 @@ function App() {
   return (
     <div className="App">
       
-      {/* {isMounted && <Loader />}
-      {loadHomePage && <Home/>} */}
+      
+       
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<>{isMounted && <Loader />}{loadHomePage && <Home/>}</>} ></Route>
+          <Route path='/sprint100' element={<UserActivity/>}></Route>
+        </Routes>
+      </BrowserRouter> 
       
     </div>
   );

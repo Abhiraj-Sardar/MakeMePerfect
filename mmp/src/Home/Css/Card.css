@@ -13,6 +13,7 @@
     cursor: pointer;
     border:2px solid #ededed5b;
     transition: 1s;
+    text-decoration: none;
 }
 
 .card-container h2{
@@ -26,7 +27,7 @@
     position: relative;
     height:150px;
     width:45%;
-    background: conic-gradient(var(--secondary-color) 3.6deg,#ededed5b 0deg);
+    background: conic-gradient(var(--glow-green) 153.6deg,#ededed5b 0deg);
     border-radius: 50%;
     display: flex;
     align-items: center;

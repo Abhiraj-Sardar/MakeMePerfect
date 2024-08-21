@@ -13,6 +13,8 @@
     color:var(--secondary-color);
 
 }
+
+
 @media screen and (max-width: 768px){
     .form-container{
         width:80%;

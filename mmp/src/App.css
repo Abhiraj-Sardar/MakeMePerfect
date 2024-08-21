@@ -2,8 +2,13 @@
     --font:"Jersey 10", sans-serif;
     --primary-color: #292929;
     --secondary-color:#BB86FC;
+    --glow-green:#40FF01;
 }
 
 body{
     background-color: var(--primary-color);
+}
+
+::selection{
+    color: var(--secondary-color);
 }

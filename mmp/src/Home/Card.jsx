@@ -1,8 +1,11 @@
 import React from 'react'
 import "./Css/Card.css"
-export const Card = () => {
+import { NavLink } from 'react-router-dom'
+
+export const Card = (props) => {
     return (
-        <div className="card-container">
+        
+        <NavLink className="card-container" to={props.dest}>
             <h2>🚀50 Days Coding Challenge</h2>
             <div className="progress-container">
                 <div className="circular-progress">
@@ -15,6 +18,6 @@ export const Card = () => {
             <i class="fa-solid fa-code-merge"></i>
             <i class="fa-solid fa-terminal"></i>
             <i class="fa-solid fa-cube"></i>
-        </div>
+        </NavLink>
     )
 }
