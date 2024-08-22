@@ -5,7 +5,7 @@ const Stepper = () => {
     return (
         <div className="container streak-container">
             {
-                [...Array(50)].map((item,i) => {
+                [...Array(100)].map((item,i) => {
                     let day=`Day ${i+1}`
                     return (
                         <Tooltip title={day} placement='top'>
