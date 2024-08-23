@@ -27,6 +27,7 @@ function App() {
         <Routes>
           <Route path='/' element={<>{isMounted && <Loader />}{loadHomePage && <Home/>}</>} ></Route>
           <Route path='/sprint100' element={<UserActivity/>}></Route>
+          <Route path='/:id' element={<UserActivity/>}></Route>
         </Routes>
       </BrowserRouter> 
       

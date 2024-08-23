@@ -12,6 +12,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 
 
 import "./Css/AddGoalForm.css"
+import { COLLECTION_ID, databases, DB_ID, ID } from '../Database/appwrite';
 
 export const AddGoalForm = (props) => {
 
@@ -23,10 +24,47 @@ export const AddGoalForm = (props) => {
         props.setSubmit(false);
     }
 
-    const handleSubmit = (e) => {
+    async function handleSubmit(e) {
 
         e.preventDefault();
+        const title = e.target.title.value;
+        const desc = e.target.desc.value;
+        const streak = (+(e.target.streak.value));
+        const xAxis = [];
+        const series = [];
 
+        for (let i = 1; i <= streak; i++) {
+            xAxis.push(i);
+            series.push(0);
+        }
+
+        let today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+        var yyyy = today.getFullYear();
+
+        const date=yyyy+"-"+mm+"-"+dd
+
+        //adding document/row in database
+        // console.log(date);
+        
+        await databases.createDocument(DB_ID, COLLECTION_ID, ID.unique(), {
+            Title: title,
+            Desc: desc,
+            Streak: streak,
+            CurrentStreak: 0,
+            Day: 0,
+            Date: date,
+            StreakChart: [`${1}:${1}`],
+            Xaxis: xAxis,
+            SeriesData: series
+        })
+
+
+
+
+
+        //frontend form submit  
         setLoad(true);
         props.setSubmit(true);
 
@@ -39,11 +77,11 @@ export const AddGoalForm = (props) => {
 
     return (
         <div className="form-container">
-            <form method="get" onSubmit={handleSubmit} className='user-form'>
+            <form onSubmit={handleSubmit} className='user-form'>
                 <h3>🚀Set Your Sprint🎯</h3>
 
                 <div className="container-fluid">
-                    <TextField id="standard-basic" color='secondary' label="🎯Sprint Title" variant="standard" fullWidth />
+                    <TextField id="standard-basic" color='secondary' name="title" label="🎯Sprint Title" variant="standard" fullWidth />
                 </div>
                 <br />
                 <div className="container-fluid">
@@ -55,6 +93,7 @@ export const AddGoalForm = (props) => {
                         defaultValue="What You Will Do In This Sprint ?"
                         variant="filled"
                         fullWidth
+                        name='desc'
                         color='secondary'
                     />
 
@@ -69,7 +108,8 @@ export const AddGoalForm = (props) => {
                         label="No of Days"
                         // onChange={handleChange}
                         color='secondary'
-                        
+                        name='streak'
+
                     >
                         <MenuItem value="" >
                             <em>None</em>
@@ -113,7 +153,7 @@ export const AddGoalForm = (props) => {
                     cursor: "pointer"
                 }} />
 
-            
+
         </div>
     )
 }

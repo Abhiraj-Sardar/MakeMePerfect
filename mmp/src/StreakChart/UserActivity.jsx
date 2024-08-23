@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../Navbar/Navbar'
 import "./Css/UserActivity.css"
 import Stepper from './Stepper'
@@ -8,38 +8,143 @@ import { LineGraph } from './LineGraph';
 import Backdrop from '@mui/material/Backdrop';
 import streakSound from "../Assets/Audio/coinBag.mp3";
 import { StreakBadge } from './StreakBadge';
+
+import { useParams } from 'react-router-dom';
+import { DB_ID, COLLECTION_ID, databases } from '../Database/appwrite';
+
 export const UserActivity = () => {
 
+    const { id } = useParams();  // Access the 'id' parameter
     const [streakBtn, setStreakBtn] = useState(false);
     const [backDrop, setBackDrop] = useState(false);
-
     const pointsAudio = new Audio(streakSound);
+    const [doc,setDoc]=useState([]);
+    const [lastDate,setLastDate]=useState(0);
+    const [lastMonth,setLastMonth]=useState(0);
+
+    //better approach to use useEffect while accessing API
+    useEffect(()=>{
+        async function getDoc() {
+            const res = await databases.getDocument(DB_ID, COLLECTION_ID,id); //getting all the data from the database
+            setDoc(res);
+            console.log(doc);
+            console.log(res);
+        }
+
+        getDoc();
+        
+    },[id])
+    
+    async function updateDocument(id,day,cstreak,tdd,tmm,tyyyy){
+        var series=doc["SeriesData"];
+        series[day-1]=1;
+        var today=tyyyy+"-"+tmm+"-"+tdd;
+
+        await databases.updateDocument(DB_ID, COLLECTION_ID, id, {
+            Day:day,
+            CurrentStreak:cstreak,
+            Date: today,
+            SeriesData:series
+        });
+    }
+   
+    
 
     const streakEarned = () => {
+
+        var day=doc["Day"];
+        var cstreak=doc["CurrentStreak"];
+
+        let ldate=(doc["Date"].split("T"))[0];
+        let d=ldate.split("-");
+        
+        var ldd= +d.pop();
+        var lmm= +d.pop();
+        var lyyyy= +d.pop();
+
+        // console.log(lmm)
+        
+
+        let today = new Date();
+        // var dd = today.getDate();
+        var dd=2;
+        var mm=9;
+        // var mm = today.getMonth() + 1 
+        var yyyy = today.getFullYear();
+
+        // console.log(dd,mm,yyyy)
+        //Streak Chart Algorithm Designed by Abhiraj Sardar
+        if(lmm==mm){
+
+            if(ldd<dd){
+                let rem=(dd-ldd)-1;
+                if(rem>0){
+                    day=day+1+rem;
+                    cstreak=1;
+                }else{
+                    day=day+1+0;
+                    cstreak=cstreak+1;
+                }
+            }else{
+                console.log("this part has runned");
+            }
+        }else{
+
+            dd=dd+30;
+            if(ldd<dd){
+                let rem=(dd-ldd)-1;
+                if(rem>0){
+                    day=day+1+rem;
+                    cstreak=1;
+                }else{
+                    day=day+1+0;
+                    cstreak=cstreak+1;
+                }
+            }
+
+            dd=today.getDate();
+        }
+
+        var tdd=String(dd).padStart(2,"0");
+        var tmm=String(mm).padStart(2,"0");
+        var tyyyy=yyyy;
+
+        updateDocument(id,day,cstreak,tdd,tmm,tyyyy);
+
+
+        //update the values in Database
+
         pointsAudio.play();
         setStreakBtn(true);
         setBackDrop(true)
+
     }
 
     const closeBackDrop=()=>{
         setBackDrop(false);
     }
+
+    if (!doc) {
+        return <div>Loading...</div>;
+      }
+
+
     return (
         <>
             <Navbar />
             <div className="container-fluid activity-container">
-                <h1>50 Days Coding Challenge</h1>
+                <h1>{doc["Title"]?doc["Title"]:"Loading..."}</h1>
                 <div className="row">
                     <div className="col-md-6 col-sm-12 streak-chart">
                         <h3><i class="fa-regular fa-calendar"></i> Streak Calendar</h3>
-                        <Stepper />
+                        <Stepper streak={doc["Streak"]} />
                         <br />
                         <div className="btn-container">
                             <Button variant="contained"
                                 color='secondary'
                                 startIcon={<FingerprintIcon />}
                                 onClick={streakEarned}
-                                disabled={streakBtn}
+                                // disabled={streakBtn}
                             >
                                 Redeem Streak
                             </Button>
@@ -50,13 +155,13 @@ export const UserActivity = () => {
                         <LineGraph />
                     </div>
                 </div>
-                <Backdrop
+                {/* <Backdrop
                     sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                     open={backDrop}
                     onClick={closeBackDrop}
                 >
                     <StreakBadge closeBackDrop={closeBackDrop}/>
-                </Backdrop>
+                </Backdrop> */}
             </div>
 
         </>

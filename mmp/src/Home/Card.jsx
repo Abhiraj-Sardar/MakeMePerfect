@@ -6,7 +6,7 @@ export const Card = (props) => {
     return (
         
         <NavLink className="card-container" to={props.dest}>
-            <h2>🚀50 Days Coding Challenge</h2>
+            <h2>🚀{props.title}</h2>
             <div className="progress-container">
                 <div className="circular-progress">
                     <span className="progress-value">0/50</span>

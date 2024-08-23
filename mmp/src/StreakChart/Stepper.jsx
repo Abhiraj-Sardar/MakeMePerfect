@@ -1,11 +1,11 @@
 import React from 'react'
 import Tooltip from '@mui/material/Tooltip';
 import "./Css/Stepper.css"
-const Stepper = () => {
+const Stepper = (props) => {
     return (
         <div className="container streak-container">
             {
-                [...Array(100)].map((item,i) => {
+                [...Array(props.streak)].map((item,i) => {
                     let day=`Day ${i+1}`
                     return (
                         <Tooltip title={day} placement='top'>
