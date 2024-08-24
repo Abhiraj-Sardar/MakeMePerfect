@@ -11,7 +11,7 @@ const Stepper = (props) => {
                     let day=`Day ${i+1}`
                     return (
                         <Tooltip title={day} placement='top'>
-                        <div className="day-box" style={(props.seriesData[i]==1)?{backgroundColor:"var(--glow-green)"}:{backgroundColor:"rgba(196, 209, 209, 0.773)"}}>
+                        <div className="day-box" style={(props.seriesData[i]!=0)?{backgroundColor:"var(--glow-green)"}:{backgroundColor:"rgba(196, 209, 209, 0.773)"}}>
 
                         </div>
                         </Tooltip>

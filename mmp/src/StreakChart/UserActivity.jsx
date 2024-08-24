@@ -8,10 +8,12 @@ import { LineGraph } from './LineGraph';
 import Backdrop from '@mui/material/Backdrop';
 import streakSound from "../Assets/Audio/coinBag.mp3";
 import { StreakBadge } from './StreakBadge';
-import Alert from '@mui/material/Alert';
+
 
 import { useParams } from 'react-router-dom';
 import { DB_ID, COLLECTION_ID, databases } from '../Database/appwrite';
+import { Warning } from '../Alert/Warning';
+import { Alert } from '@mui/material';
 
 export const UserActivity = () => {
 
@@ -24,6 +26,7 @@ export const UserActivity = () => {
     const [lastMonth, setLastMonth] = useState(0);
     const [seriesData,setSeriesData]=useState([]);
     const [xAxis,setXAxis]=useState([]);
+    const [showAlert,setShowAlert]=useState(false);
 
     //better approach to use useEffect while accessing API
     useEffect(() => {
@@ -80,7 +83,7 @@ export const UserActivity = () => {
 
         let today = new Date();
         // var dd = today.getDate();
-        var dd = 10;
+        var dd = 1;
         var mm = 9;
         // var mm = today.getMonth() + 1 
         var yyyy = today.getFullYear();
@@ -105,9 +108,7 @@ export const UserActivity = () => {
                 }
                 else {
                     //have to enable alerting service
-                    <Alert severity="warning" onClose={() => { }}>
-                        This Alert displays the default close icon.
-                    </Alert>
+                    // setShowAlert(true);
                 }
             }
             else {
@@ -157,6 +158,7 @@ export const UserActivity = () => {
     return (
         <>
             <Navbar />
+            
             <div className="container-fluid activity-container">
                 <h1>{doc["Title"] ? doc["Title"] : "Loading..."}</h1>
                 <div className="row">

@@ -7,7 +7,6 @@ import LockIcon from '@mui/icons-material/Lock';
 import CodeIcon from '@mui/icons-material/Code';
 import LinearProgress from '@mui/material/LinearProgress';
 import Box from '@mui/material/Box';
-
 import './Css/Navbar.css';
 import { Backdrop } from "@mui/material";
 import { AddGoalForm } from "../UserForm/AddGoalForm";
@@ -62,7 +61,7 @@ const Navbar = () => {
                     <li className="nav-item">
 
                         <Button
-                            href="/#"
+                            href="/ComingSoon"
                             className="nav-links"
                             onClick={toggleMenu}
                             variant="outlined"
@@ -75,11 +74,12 @@ const Navbar = () => {
                     <li className="nav-item">
                         <Button
                             href="/about"
-                            disabled={true}
+                            // disabled={true}
                             className="nav-links"
                             onClick={toggleMenu}
                             variant="outlined"
                             startIcon={<DeleteIcon />}
+                            onClick={openForm}
                             sx={{ color: "#fff", backgroundColor: "var(--secondary-color);", borderColor: "var(--secondary-color)", fontFamily: "var(--font)", fontSize: "16px", letterSpacing: "2px" }}
                         >
                             Delete Sprint
@@ -87,7 +87,7 @@ const Navbar = () => {
                     </li>
                     <li className="nav-item">
                         <Button
-                            href="/#"
+                            href="/ComingSoon"
                             className="nav-links"
                             onClick={toggleMenu}
                             variant="outlined"

@@ -1,0 +1,23 @@
+.cs-home{
+    height:100vh;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #2C2C61; */
+}
+
+.cs-home .cs-img{
+    height:75%;
+    width:50%;
+    background-image: url(../../Assets/img/comingsoon.png);
+    background-size: cover;
+}
+
+@media screen and (max-width: 768px){
+    .cs-home .cs-img{
+        height:35%;
+        width:90%;
+        background-size: cover;
+    }
+}

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Home } from './Home/Home';
 import { UserActivity } from './StreakChart/UserActivity';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ComingSoon } from './ComingSoon/ComingSoon';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
           <Route path='/' element={<>{isMounted && <Loader />}{loadHomePage && <Home/>}</>} ></Route>
           <Route path='/sprint100' element={<UserActivity/>}></Route>
           <Route path='/:id' element={<UserActivity/>}></Route>
+          <Route path='/ComingSoon' element={<ComingSoon/>}></Route>
         </Routes>
       </BrowserRouter> 
       
