@@ -9,7 +9,7 @@ import Select from '@mui/material/Select';
 import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
 import LoadingButton from '@mui/lab/LoadingButton';
-
+import NativeSelect from '@mui/material/NativeSelect';
 
 import "./Css/AddGoalForm.css"
 import { COLLECTION_ID, databases, DB_ID, ID } from '../Database/appwrite';
@@ -40,14 +40,14 @@ export const AddGoalForm = (props) => {
 
         let today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
         var yyyy = today.getFullYear();
 
-        const date=yyyy+"-"+mm+"-"+dd
+        const date = yyyy + "-" + mm + "-" + dd
 
         //adding document/row in database
         // console.log(date);
-        
+
         await databases.createDocument(DB_ID, COLLECTION_ID, ID.unique(), {
             Title: title,
             Desc: desc,
@@ -101,7 +101,23 @@ export const AddGoalForm = (props) => {
                 <br />
                 <FormControl required sx={{ m: 1, minWidth: 120 }}>
                     <InputLabel id="demo-simple-select-required-label">Streak</InputLabel>
-                    <Select
+                    <NativeSelect
+                        defaultValue={30}
+                        inputProps={{
+                            name: 'streak',
+                            id: 'uncontrolled-native',
+                        }}
+                        name='streak'
+                    >
+                        <option value={7}>7 Days</option>
+                        <option value={10}>10 Days</option>
+                        <option value={25}>25 Days</option>
+                        <option value={30}>30 Days</option>
+                        <option value={40}>40 Days</option>
+                        <option value={60}>60 Days</option>
+                        <option value={100}>100 Days</option>
+                    </NativeSelect>
+                    {/* <Select
                         labelId="demo-simple-select-required-label"
                         id="demo-simple-select-required"
                         // value={age}
@@ -109,7 +125,6 @@ export const AddGoalForm = (props) => {
                         // onChange={handleChange}
                         color='secondary'
                         name='streak'
-
                     >
                         <MenuItem value="" >
                             <em>None</em>
@@ -120,7 +135,7 @@ export const AddGoalForm = (props) => {
                         <MenuItem value={30}>30 Days</MenuItem>
                         <MenuItem value={60}>60 Days</MenuItem>
                         <MenuItem value={100}>100 Days</MenuItem>
-                    </Select>
+                    </Select> */}
                     <FormHelperText>Required</FormHelperText>
                 </FormControl>
 

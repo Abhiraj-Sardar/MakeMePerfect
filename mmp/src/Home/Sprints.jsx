@@ -18,6 +18,11 @@ export const Sprints = () => {
       getData();
   },[])
 
+  if(!allSprints){
+    return( <div className="sprint-container container-fluid">
+      Loading...
+      </div>);
+  }
   return (
     <div className="sprint-container container-fluid">
       {
@@ -25,6 +30,8 @@ export const Sprints = () => {
           return(
             <Card dest={sprint["$id"]} 
               title={sprint["Title"]}
+              target={sprint["Streak"]}
+              day={sprint["Day"]}
             />
           )
         })

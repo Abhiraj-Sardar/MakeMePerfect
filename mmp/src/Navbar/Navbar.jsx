@@ -23,7 +23,9 @@ const Navbar = () => {
 
     const openForm = (e) => {
         e.preventDefault();
+        
         setOpenBackDrop(true);
+        
     }
 
     return (
@@ -60,7 +62,7 @@ const Navbar = () => {
                     <li className="nav-item">
 
                         <Button
-                            href="/about"
+                            href="/#"
                             className="nav-links"
                             onClick={toggleMenu}
                             variant="outlined"
@@ -85,7 +87,7 @@ const Navbar = () => {
                     </li>
                     <li className="nav-item">
                         <Button
-                            href="/about"
+                            href="/#"
                             className="nav-links"
                             onClick={toggleMenu}
                             variant="outlined"

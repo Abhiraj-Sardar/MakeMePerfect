@@ -28,8 +28,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    overflow:auto;
 }
 
+.activity-container .row .streak-graph h3{
+    text-align: center;
+    padding: 12px 0;
+    color: #fff;
+    font-family: var(--font);
+    font-size: 44px;
+}
 .activity-container .row .streak-chart .btn-container{
     width: 100%;
     text-align: center;
@@ -40,5 +49,31 @@
     }
     100%{
         opacity: 0.3;
+    }
+}
+
+@media screen and (max-width: 768px){
+
+    .activity-container{
+        /* background-color: #2C2C61; */
+    }
+    .activity-container h1{
+        font-size: 2.5rem;
+        
+    }
+
+    .activity-container .row .streak-chart,.streak-graph{
+        /* background-color: #2C2C61; */
+        display: flex;
+        align-items: center;
+    }
+
+    .activity-container .row .streak-chart h3{
+        font-size: 2rem;
+        /* background-color: var(--primary-color); */
+    }
+    .activity-container .row .streak-graph h3{
+        /* background-color: var(--primary-color); */
+        font-size: 2rem;
     }
 }

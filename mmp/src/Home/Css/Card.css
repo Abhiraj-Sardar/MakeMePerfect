@@ -90,3 +90,19 @@
 .card-container:hover{
     box-shadow: var(--secondary-color) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 }
+
+@media screen and (max-width: 768px){
+    .card-container{
+        width:100%;
+        height:auto;
+        /* z-index: -1; */
+    }
+
+    .card-container h2{
+        font-size:1.5rem;
+    }
+
+    
+    
+
+}

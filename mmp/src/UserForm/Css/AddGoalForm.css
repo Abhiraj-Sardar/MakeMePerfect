@@ -6,6 +6,7 @@
     font-family: var(--font);
     border-radius: 10px;
     position: relative;
+    
 }
 .user-form h3{
     margin: 15px 0px;
@@ -13,6 +14,7 @@
     color:var(--secondary-color);
 
 }
+
 
 
 @media screen and (max-width: 768px){

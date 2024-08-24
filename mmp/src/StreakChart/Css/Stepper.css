@@ -3,7 +3,7 @@
     /* height: 400px; */
     /* width:50%; */
     display: flex;
-    gap:1rem;
+    gap:.5rem;
     flex-wrap: wrap;
     flex-direction: row;
 }
@@ -14,3 +14,11 @@
     background-color: rgba(196, 209, 209, 0.773);
     border-radius: 10px;
 }
+
+@media screen and (max-width: 768px){
+    .streak-container .day-box{
+        width:10%;
+        height:10px;
+    }
+}
+
