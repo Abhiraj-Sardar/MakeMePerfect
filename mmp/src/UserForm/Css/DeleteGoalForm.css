@@ -1,0 +1,74 @@
+.dl-form-container{
+    height:70%;
+    width:40%;
+    background-color: rgb(240, 248, 255);
+    border-radius: 10px;
+    border: 2px solid var(--secondary-color);
+    position: relative;
+}
+
+.dl-form-container h3{
+    text-align: center;
+    padding: 12px;
+    color: var(--secondary-color);
+}
+
+.dl-form-container .dl-img-container{
+    /* background-color: black; */
+    height:60%;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.dl-form-container .dl-img-container .dl-img{
+    height:90%;
+    width:90%;
+    background-image: url("../../Assets/img/deleteID.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+.dl-form-container .dl-inp{
+    /* background-color: red; */
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dl-form-container .dl-btn{
+    display: flex;
+    justify-content: end;
+    margin: 12px;
+    /* background-color: red; */
+}
+
+
+@media screen and (max-width: 768px){
+    .dl-form-container{
+        height:50%;
+        width:90%;
+    }
+
+    .dl-form-container .dl-img-container{
+        
+    }
+
+    .dl-form-container h3{
+        padding: 0;
+    }
+
+    .dl-form-container .dl-btn{
+        margin: 10px 0;
+    }
+    
+    .dl-form-container .dl-img-container .dl-img{
+        height: 90%;
+        width:90%;
+    }
+}

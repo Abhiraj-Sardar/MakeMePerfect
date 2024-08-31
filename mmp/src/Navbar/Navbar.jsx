@@ -10,11 +10,14 @@ import Box from '@mui/material/Box';
 import './Css/Navbar.css';
 import { Backdrop } from "@mui/material";
 import { AddGoalForm } from "../UserForm/AddGoalForm";
+import { DeleteGoalForm } from "../UserForm/DeleteGoalForm";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [openBackDrop, setOpenBackDrop] = useState(false);
     const [submit, setSubmit] = useState(false);
+    const [option,setOption]=useState(1); //if 1 then open addSprint if 2 then open DeleteSprint
+
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -22,9 +25,15 @@ const Navbar = () => {
 
     const openForm = (e) => {
         e.preventDefault();
-        
+        setOption(1);
         setOpenBackDrop(true);
         
+    }
+
+    const openDeleteForm=(e)=>{
+        e.preventDefault();
+        setOption(2);
+        setOpenBackDrop(true);
     }
 
     return (
@@ -73,13 +82,13 @@ const Navbar = () => {
                     </li>
                     <li className="nav-item">
                         <Button
-                            href="/about"
+                            href="/ComingSoon"
                             // disabled={true}
                             className="nav-links"
                             onClick={toggleMenu}
                             variant="outlined"
                             startIcon={<DeleteIcon />}
-                            onClick={openForm}
+                            onClick={openDeleteForm}
                             sx={{ color: "#fff", backgroundColor: "var(--secondary-color);", borderColor: "var(--secondary-color)", fontFamily: "var(--font)", fontSize: "16px", letterSpacing: "2px" }}
                         >
                             Delete Sprint
@@ -114,11 +123,18 @@ const Navbar = () => {
                         (<p></p>)
                     }
 
-
-                    <AddGoalForm
-                        setOpenBackDrop={setOpenBackDrop}
-                        setSubmit={setSubmit}
-                    />
+                    {
+                        option==1
+                        ?(<AddGoalForm
+                            setOpenBackDrop={setOpenBackDrop}
+                            setSubmit={setSubmit}
+                        />)
+                        :(<DeleteGoalForm
+                            setOpenBackDrop={setOpenBackDrop}
+                            setSubmit={setSubmit}
+                            />)
+                    }
+                    
                 </Backdrop>
 
             </div>

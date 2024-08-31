@@ -12,6 +12,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import NativeSelect from '@mui/material/NativeSelect';
 
 import "./Css/AddGoalForm.css"
+
 import { COLLECTION_ID, databases, DB_ID, ID } from '../Database/appwrite';
 
 export const AddGoalForm = (props) => {
@@ -117,25 +118,7 @@ export const AddGoalForm = (props) => {
                         <option value={60}>60 Days</option>
                         <option value={100}>100 Days</option>
                     </NativeSelect>
-                    {/* <Select
-                        labelId="demo-simple-select-required-label"
-                        id="demo-simple-select-required"
-                        // value={age}
-                        label="No of Days"
-                        // onChange={handleChange}
-                        color='secondary'
-                        name='streak'
-                    >
-                        <MenuItem value="" >
-                            <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={7}>7 Days</MenuItem>
-                        <MenuItem value={10}>10 Days</MenuItem>
-                        <MenuItem value={20}>20 Days</MenuItem>
-                        <MenuItem value={30}>30 Days</MenuItem>
-                        <MenuItem value={60}>60 Days</MenuItem>
-                        <MenuItem value={100}>100 Days</MenuItem>
-                    </Select> */}
+                    
                     <FormHelperText>Required</FormHelperText>
                 </FormControl>
 

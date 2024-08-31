@@ -8,8 +8,6 @@ import { LineGraph } from './LineGraph';
 import Backdrop from '@mui/material/Backdrop';
 import streakSound from "../Assets/Audio/coinBag.mp3";
 import { StreakBadge } from './StreakBadge';
-
-
 import { useParams } from 'react-router-dom';
 import { DB_ID, COLLECTION_ID, databases } from '../Database/appwrite';
 import { Warning } from '../Alert/Warning';
@@ -83,7 +81,7 @@ export const UserActivity = () => {
 
         let today = new Date();
         // var dd = today.getDate();
-        var dd = 1;
+        var dd = 3;
         var mm = 9;
         // var mm = today.getMonth() + 1 
         var yyyy = today.getFullYear();
