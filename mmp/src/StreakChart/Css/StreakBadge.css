@@ -40,3 +40,10 @@
         transform: rotateY(90deg);
     }
 }
+
+@media screen and (max-width: 768px){
+    .streak-badge-container{
+        width:90%;
+        height:50%;
+    }
+}

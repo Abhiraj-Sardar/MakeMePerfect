@@ -1,7 +1,23 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import CloseIcon from '@mui/icons-material/Close';
+import { useParams } from 'react-router-dom';
+import { DB_ID, COLLECTION_ID, databases } from '../Database/appwrite';
 import "./Css/StreakBadge.css"
 export const StreakBadge = (props) => {
+    const { id } = useParams();
+    const [currentStreak,setCurrentStreak]=useState(0);
+
+    useEffect(() => {
+        async function getDoc() {
+            const res = await databases.getDocument(DB_ID, COLLECTION_ID, id); //getting all the data from the database
+            setCurrentStreak(res["CurrentStreak"]);
+            // console.log(seriesData);
+        }
+
+        getDoc();
+
+    });
+
     return (
         <div className="streak-badge-container">
             <h3>Good Going, Don't Give Up</h3>
@@ -12,7 +28,7 @@ export const StreakBadge = (props) => {
 
             </div>
             <h3>Congrats, You Just Earned a Streak</h3>
-            <h3>Your Total Streak : 12</h3>
+            <h3>Your Total Streak : {currentStreak}</h3>
 
             <CloseIcon
                 

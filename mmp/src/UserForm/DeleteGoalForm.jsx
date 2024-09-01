@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CloseIcon from '@mui/icons-material/Close';
 import LoadingButton from '@mui/lab/LoadingButton';
-import { COLLECTION_ID, databases, DB_ID, ID } from '../Database/appwrite';
-
+import { COLLECTION_ID, databases, DB_ID} from '../Database/appwrite';
 import "./Css/DeleteGoalForm.css"
+
 export const DeleteGoalForm = (props) => {
+    
     const [loading, setLoading] = useState(false);
     const [checkId,setCheckId]=useState('');
     const [deleteBtn,setDeleteBtn]=useState(true);
@@ -46,7 +46,7 @@ export const DeleteGoalForm = (props) => {
     const validateId=(e)=>{
 
         setCheckId(e.target.value);
-        if((checkId.length+1)==20){
+        if((checkId.length+1)===20){
             setDeleteBtn(false);
         }
         else{

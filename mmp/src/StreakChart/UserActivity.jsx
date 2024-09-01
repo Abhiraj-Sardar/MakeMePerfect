@@ -6,12 +6,10 @@ import Button from '@mui/material/Button';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import { LineGraph } from './LineGraph';
 import Backdrop from '@mui/material/Backdrop';
-import streakSound from "../Assets/Audio/coinBag.mp3";
+import streakSound from "../Assets/Audio/pointEarn.mp3";
 import { StreakBadge } from './StreakBadge';
 import { useParams } from 'react-router-dom';
 import { DB_ID, COLLECTION_ID, databases } from '../Database/appwrite';
-import { Warning } from '../Alert/Warning';
-import { Alert } from '@mui/material';
 
 export const UserActivity = () => {
 
@@ -33,7 +31,7 @@ export const UserActivity = () => {
             setDoc(res);
             setSeriesData(res["SeriesData"])
             setXAxis(res["Xaxis"]);
-            // console.log(doc);
+            console.log(doc);
             // console.log(seriesData);
         }
 
@@ -48,7 +46,7 @@ export const UserActivity = () => {
         if(((day-1)-1)<0){
             prevIdx=0
         }
-        else{
+        else{  
             prevIdx=(day-1)-1
         }
         series[day - 1] = series[prevIdx]+1;
@@ -68,6 +66,7 @@ export const UserActivity = () => {
 
         var day = doc["Day"];
         var cstreak = doc["CurrentStreak"];
+        var streak = doc["Streak"];
 
         let ldate = (doc["Date"].split("T"))[0];
         let d = ldate.split("-");
@@ -80,10 +79,10 @@ export const UserActivity = () => {
 
 
         let today = new Date();
-        // var dd = today.getDate();
-        var dd = 3;
-        var mm = 9;
-        // var mm = today.getMonth() + 1 
+        var dd = today.getDate();
+        // var dd = 2; //for testing purpose
+        // var mm = 9; //for testing purpose
+        var mm = today.getMonth() + 1 
         var yyyy = today.getFullYear();
 
         // console.log(dd,mm,yyyy)
@@ -133,10 +132,17 @@ export const UserActivity = () => {
         var tmm = String(mm).padStart(2, "0");
         var tyyyy = yyyy;
 
+        //when we are trying to update streak even though we completed our sprint
+        if(day==streak+1){
+            alert("You have already completed this Sprint...");
+            return 0
+        }
+
+        //update the values in Database
         updateDocument(id, day, cstreak, tdd, tmm, tyyyy);
 
 
-        //update the values in Database
+        
 
         pointsAudio.play();
         setStreakBtn(true);
@@ -187,13 +193,13 @@ export const UserActivity = () => {
                             />
                     </div>
                 </div>
-                {/* <Backdrop
+                <Backdrop
                     sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                     open={backDrop}
                     onClick={closeBackDrop}
                 >
                     <StreakBadge closeBackDrop={closeBackDrop}/>
-                </Backdrop> */}
+                </Backdrop>
             </div>
 
         </>

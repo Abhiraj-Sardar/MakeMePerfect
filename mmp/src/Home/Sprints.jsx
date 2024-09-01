@@ -28,7 +28,9 @@ export const Sprints = () => {
       {
         allSprints.map((sprint,i)=>{
           return(
-            <Card dest={sprint["$id"]} 
+            <Card
+              key={sprint["$id"]} 
+              dest={sprint["$id"]} 
               title={sprint["Title"]}
               target={sprint["Streak"]}
               day={sprint["Day"]}

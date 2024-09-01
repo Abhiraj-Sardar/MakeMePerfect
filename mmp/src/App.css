@@ -7,9 +7,17 @@
 
 body{
     background-color: var(--primary-color);
-    overflow-x: hidden;
 }
 
 ::selection{
     color: var(--secondary-color);
+}
+
+@media screen and (max-width: 768px){
+    
+    body{
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+    
 }

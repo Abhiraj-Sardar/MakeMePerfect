@@ -2,16 +2,13 @@ import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import CloseIcon from '@mui/icons-material/Close';
 import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
 import LoadingButton from '@mui/lab/LoadingButton';
 import NativeSelect from '@mui/material/NativeSelect';
-
-import "./Css/AddGoalForm.css"
+import "./Css/AddGoalForm.css";
 
 import { COLLECTION_ID, databases, DB_ID, ID } from '../Database/appwrite';
 
