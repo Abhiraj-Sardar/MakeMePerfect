@@ -1,7 +1,7 @@
 .streak-container{
     /* background-color: red; */
     /* height: 400px; */
-    /* width:50%; */
+    width:50%;
     display: flex;
     gap:.5rem;
     flex-wrap: wrap;
@@ -10,14 +10,14 @@
 
 .streak-container .day-box{
     height:20px;
-    width:5%;
+    width:10%;
     background-color: rgba(196, 209, 209, 0.773);
     border-radius: 10px;
 }
 
 @media screen and (max-width: 768px){
     .streak-container .day-box{
-        width:10%;
+        width:15%;
         height:10px;
     }
 }

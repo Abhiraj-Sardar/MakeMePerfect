@@ -190,6 +190,7 @@ export const UserActivity = () => {
                         <h3><i class="fa-solid fa-chart-line"></i> Activity Chart</h3>
                         <LineGraph xAxis={xAxis}
                             seriesData={seriesData}
+                            day={doc["Day"]}
                             />
                     </div>
                 </div>

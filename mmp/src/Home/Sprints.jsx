@@ -19,10 +19,12 @@ export const Sprints = () => {
   },[])
 
   if(!allSprints){
-    return( <div className="sprint-container container-fluid">
+    return( 
+      <div className="sprint-container container-fluid">
       Loading...
       </div>);
   }
+  
   return (
     <div className="sprint-container container-fluid">
       {

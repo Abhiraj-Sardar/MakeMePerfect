@@ -1,8 +1,8 @@
 .card-container{
-    height:16rem;
+    /* height:16rem; */
     width:25%;
     position: relative;
-    /* background-color: var(--primary-color); */
+    /* background-color: red; */
     background-color: #333;
     border-radius: 10px;
     /* border: 5px solid var(--secondary-color); */
@@ -25,7 +25,7 @@
 
 .card-container .progress-container .circular-progress{
     position: relative;
-    height:150px;
+    height:9rem;
     width:45%;
     background: conic-gradient(var(--glow-green) 153.6deg,#ededed5b 0deg);
     border-radius: 50%;
@@ -37,8 +37,8 @@
 .card-container .progress-container .circular-progress::before{
     content: "";
     position: absolute;
-    height:130px;
-    width:86%;
+    height:85%;
+    width:85%;
     background-color: #333;
     border-radius: 50%;
 }
@@ -59,27 +59,27 @@
 }
 
 .card-container .fa-code{
-    top:5rem;
-    right:2rem;
+    top:35%;
+    right:10%;
 }
 
 .card-container .fa-diagram-project{
-    top:7rem;
-    right:9rem;
+    top:35%;
+    right:35%;
 }
 
 .card-container .fa-bug{
-    top:1rem;
+    top:8%;
 }
 
 .card-container .fa-cube{
-    top:10rem;
-    right: 3rem;
+    top:70%;
+    right: 15%;
 }
 
 .card-container .fa-terminal{
-    top:12rem;
-    right: 7rem;
+    top:75%;
+    right: 37%;
 }
 
 .card-container:hover i{
@@ -91,18 +91,14 @@
     box-shadow: var(--secondary-color) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 600px){
     .card-container{
         width:100%;
-        height:auto;
         /* z-index: -1; */
     }
 
     .card-container h2{
         font-size:1.5rem;
     }
-
-    
-    
 
 }
