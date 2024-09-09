@@ -96,7 +96,7 @@ const Navbar = () => {
                     </li>
                     <li className="nav-item">
                         <Button
-                            href="/ComingSoon"
+                            href="/Developer"
                             className="nav-links"
                             onClick={toggleMenu}
                             variant="outlined"

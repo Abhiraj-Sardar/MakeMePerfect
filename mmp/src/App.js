@@ -5,6 +5,7 @@ import { Home } from './Home/Home';
 import { UserActivity } from './StreakChart/UserActivity';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ComingSoon } from './ComingSoon/ComingSoon';
+import { Developer } from './Developer Info/Developer';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
           <Route path='/sprint100' element={<UserActivity/>}></Route>
           <Route path='/:id' element={<UserActivity/>}></Route>
           <Route path='/ComingSoon' element={<ComingSoon/>}></Route>
+          <Route path='/Developer' element={<Developer/>}></Route>
         </Routes>
       </BrowserRouter> 
       

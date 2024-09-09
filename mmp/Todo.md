@@ -1,1 +1,7 @@
--add Light/Dark Mode(use this color:  #2C2C61)
+- add Light/Dark Mode(use this color:  #2C2C61)
+- enable lock/developer info
+- add responsiveness
+- add information descriptions
+- add skeleton waiting
+- adding the home section (/home)
+- adding breadcrums

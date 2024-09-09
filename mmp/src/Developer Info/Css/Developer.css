@@ -1,0 +1,65 @@
+.dev-container{
+    /* background-color: red; */
+    height: calc(100vh - 70px);
+}
+
+.dev-container .img-container{
+    /* background-color: aliceblue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 70px); /* try to use calc() and vh units for responsiveness */
+
+}
+
+.dev-container .img-container .dev-img{
+    background-image: url("../../Assets/img/comingsoon.png");
+    background-size: cover;
+    height:80%;
+    width:80%;
+}
+
+.dev-container .dev-details{
+    /* background-color: blue; */
+    height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.dev-container .dev-details .dev-data{
+    /* background-color: rebeccapurple; */
+    height:80%;
+    width:80%;
+    color: var(--white);
+}
+
+.dev-data h3{
+    font-family: var(--font);
+}
+
+.dev-data h3 em{
+    color: yellow;
+    text-shadow: 2px 2px 2px red;
+    letter-spacing: 2px;
+    animation: blink1 1s ease-in-out infinite alternate;
+}
+
+.dev-data p span{
+    animation: blink1 1s ease-in-out infinite alternate;
+}
+
+
+@keyframes blink1 {
+    0%{
+        color: yellow;
+    }
+
+    25%{
+        color: yellowgreen;
+    }
+    100%{
+        color:wheat;
+    }
+}
