@@ -1,3 +1,12 @@
+.loader-bg{
+    width:100%;
+    height: calc(90vh - 0px);
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .sprint-container{
     
     /* background-color: rgb(49, 147, 233); */

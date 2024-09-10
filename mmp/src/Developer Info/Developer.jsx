@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../Navbar/Navbar'
 import Switch from '@mui/material/Switch';
 
 import "./Css/Developer.css"
 export const Developer = () => {
+
+
+
     return (
         <>
             <Navbar />
@@ -29,9 +32,12 @@ export const Developer = () => {
                             <hr/>
                             <h3>Developer Mode 🛠️</h3>
                             <p>Careful!! If You Enable The developer Mode then you would be able to unlock your Sprints. Hence You will get access to Add Sprint or Delete Sprints. It Does not affect your Important Data.</p>
-                            <h5>
-                                off <Switch defaultChecked color="warning" /> on
-                            </h5>
+                            
+                            
+                                <h5>
+                                    off <Switch color="warning" /> on
+                                </h5>
+                            
                             
                         </div>
                     </div>

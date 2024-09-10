@@ -28,10 +28,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<>{isMounted && <Loader />}{loadHomePage && <Home/>}</>} ></Route>
-          <Route path='/sprint100' element={<UserActivity/>}></Route>
           <Route path='/:id' element={<UserActivity/>}></Route>
-          <Route path='/ComingSoon' element={<ComingSoon/>}></Route>
-          <Route path='/Developer' element={<Developer/>}></Route>
+          <Route path='/dev' element={<Developer/>}></Route>
         </Routes>
       </BrowserRouter> 
       

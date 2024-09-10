@@ -17,11 +17,32 @@ const Navbar = () => {
     const [openBackDrop, setOpenBackDrop] = useState(false);
     const [submit, setSubmit] = useState(false);
     const [option,setOption]=useState(1); //if 1 then open addSprint if 2 then open DeleteSprint
-
+    const [btn,setBtn]=useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
+    const disableBtn = ()=>{
+
+
+        const lock = localStorage.getItem("lock");
+
+        if(lock===null){
+            localStorage.setItem("lock",'false');
+        }else{
+
+            if(lock==='false'){
+                setBtn(true)
+                localStorage.setItem("lock",'true');
+            }
+            else{
+                setBtn(false)
+                localStorage.setItem("lock",'false');
+            }
+        }
+
+    }
 
     const openForm = (e) => {
         e.preventDefault();
@@ -61,6 +82,7 @@ const Navbar = () => {
                             className="nav-links"
                             onClick={openForm}
                             variant="outlined"
+                            disabled={btn}
                             startIcon={<AddIcon />}
                             sx={{ color: "#fff", backgroundColor: "var(--secondary-color);", borderColor: "var(--secondary-color)", fontFamily: "var(--font)", fontSize: "16px", letterSpacing: "2px" }}
                         >
@@ -70,10 +92,10 @@ const Navbar = () => {
                     <li className="nav-item">
 
                         <Button
-                            href="/ComingSoon"
                             className="nav-links"
-                            onClick={toggleMenu}
+                            onClick={disableBtn}
                             variant="outlined"
+                            disabled={false}
                             startIcon={<LockIcon />}
                             sx={{ color: "#fff", backgroundColor: "var(--secondary-color);", borderColor: "var(--secondary-color)", fontFamily: "var(--font)", fontSize: "16px", letterSpacing: "2px" }}
                         >
@@ -87,6 +109,7 @@ const Navbar = () => {
                             className="nav-links"
                             onClick={toggleMenu}
                             variant="outlined"
+                            disabled={btn}
                             startIcon={<DeleteIcon />}
                             onClick={openDeleteForm}
                             sx={{ color: "#fff", backgroundColor: "var(--secondary-color);", borderColor: "var(--secondary-color)", fontFamily: "var(--font)", fontSize: "16px", letterSpacing: "2px" }}
@@ -96,7 +119,7 @@ const Navbar = () => {
                     </li>
                     <li className="nav-item">
                         <Button
-                            href="/Developer"
+                            href="/dev"
                             className="nav-links"
                             onClick={toggleMenu}
                             variant="outlined"
