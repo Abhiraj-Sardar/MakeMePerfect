@@ -7,8 +7,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ComingSoon } from './ComingSoon/ComingSoon';
 import { Developer } from './Developer Info/Developer';
 
-function App() {
 
+function App() {
+  
   const [isMounted,setIsMounted]=useState(true);
   const [loadHomePage,setLoadHomePage]=useState(false);
 
@@ -21,6 +22,7 @@ function App() {
   return()=>{clearTimeout(timer);}
   },[])
   return (
+    
     <div className="App">
       
       
@@ -34,7 +36,11 @@ function App() {
       </BrowserRouter> 
       
     </div>
+    
+    
   );
 }
 
 export default App;
+
+

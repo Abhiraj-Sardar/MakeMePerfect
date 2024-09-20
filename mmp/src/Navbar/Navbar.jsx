@@ -8,7 +8,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import LinearProgress from '@mui/material/LinearProgress';
 import Box from '@mui/material/Box';
 import './Css/Navbar.css';
-import { Backdrop } from "@mui/material";
+import { Backdrop, Switch } from "@mui/material";
 import { AddGoalForm } from "../UserForm/AddGoalForm";
 import { DeleteGoalForm } from "../UserForm/DeleteGoalForm";
 
@@ -16,31 +16,14 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [openBackDrop, setOpenBackDrop] = useState(false);
     const [submit, setSubmit] = useState(false);
-    const [option,setOption]=useState(1); //if 1 then open addSprint if 2 then open DeleteSprint
-    const [btn,setBtn]=useState(false);
+    const [option, setOption] = useState(1); //if 1 then open addSprint if 2 then open DeleteSprint
+    const [btn, setBtn] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    const disableBtn = ()=>{
-
-
-        const lock = localStorage.getItem("lock");
-
-        if(lock===null){
-            localStorage.setItem("lock",'false');
-        }else{
-
-            if(lock==='false'){
-                setBtn(true)
-                localStorage.setItem("lock",'true');
-            }
-            else{
-                setBtn(false)
-                localStorage.setItem("lock",'false');
-            }
-        }
+    const disableBtn = () => {
 
     }
 
@@ -48,10 +31,10 @@ const Navbar = () => {
         e.preventDefault();
         setOption(1);
         setOpenBackDrop(true);
-        
+
     }
 
-    const openDeleteForm=(e)=>{
+    const openDeleteForm = (e) => {
         e.preventDefault();
         setOption(2);
         setOpenBackDrop(true);
@@ -128,7 +111,9 @@ const Navbar = () => {
                         >
                             Developer Info
                         </Button>
+                    
                     </li>
+                    
                 </ul>
 
                 <Backdrop
@@ -137,27 +122,27 @@ const Navbar = () => {
                 //
                 >
                     {
-                        submit 
-                        ? 
-                        (<Box sx={{ width: '100%', position: 'absolute', top: "0" }}>
-                            <LinearProgress />
-                        </Box>)
-                        :
-                        (<p></p>)
+                        submit
+                            ?
+                            (<Box sx={{ width: '100%', position: 'absolute', top: "0" }}>
+                                <LinearProgress />
+                            </Box>)
+                            :
+                            (<p></p>)
                     }
 
                     {
-                        option==1
-                        ?(<AddGoalForm
-                            setOpenBackDrop={setOpenBackDrop}
-                            setSubmit={setSubmit}
-                        />)
-                        :(<DeleteGoalForm
-                            setOpenBackDrop={setOpenBackDrop}
-                            setSubmit={setSubmit}
+                        option == 1
+                            ? (<AddGoalForm
+                                setOpenBackDrop={setOpenBackDrop}
+                                setSubmit={setSubmit}
+                            />)
+                            : (<DeleteGoalForm
+                                setOpenBackDrop={setOpenBackDrop}
+                                setSubmit={setSubmit}
                             />)
                     }
-                    
+
                 </Backdrop>
 
             </div>

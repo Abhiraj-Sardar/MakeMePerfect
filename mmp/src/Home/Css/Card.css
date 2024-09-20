@@ -1,6 +1,6 @@
-.card-container{
+.card-container {
     /* height:16rem; */
-    width:25%;
+    width: 25%;
     position: relative;
     /* background-color: red; */
     background-color: #333;
@@ -8,49 +8,48 @@
     /* border: 5px solid var(--secondary-color); */
     overflow: hidden;
     font-family: var(--font);
-    padding:12px;
+    padding: 12px;
     z-index: 1000;
     cursor: pointer;
-    border:2px solid #ededed5b;
-    transition: 1s;
+    border: 2px solid #ededed5b; 
     text-decoration: none;
 }
 
-.card-container h2{
+.card-container h2 {
     font-size: 30px;
     text-align: center;
-    color:#fff;
-    padding:12px;
+    color: #fff;
+    padding: 12px;
 }
 
-.card-container .progress-container .circular-progress{
+.card-container .progress-container .circular-progress {
     position: relative;
-    height:9rem;
-    width:45%;
-    background: conic-gradient(var(--glow-green) 153.6deg,#ededed5b 0deg);
+    height: 9rem;
+    width: 45%;
+    background: conic-gradient(var(--glow-green) 153.6deg, #ededed5b 0deg);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.card-container .progress-container .circular-progress::before{
+.card-container .progress-container .circular-progress::before {
     content: "";
     position: absolute;
-    height:85%;
-    width:85%;
+    height: 85%;
+    width: 85%;
     background-color: #333;
     border-radius: 50%;
 }
 
-.card-container .progress-container .circular-progress .progress-value{
+.card-container .progress-container .circular-progress .progress-value {
     position: relative;
     font-size: 40px;
     font-weight: 600;
     color: #fff;
 }
 
-.card-container i{
+.card-container i {
     position: absolute;
     font-size: 50px;
     z-index: -1;
@@ -58,47 +57,51 @@
     transition: .5s;
 }
 
-.card-container .fa-code{
-    top:35%;
-    right:10%;
+.card-container .fa-code {
+    top: 35%;
+    right: 10%;
 }
 
-.card-container .fa-diagram-project{
-    top:35%;
-    right:35%;
+.card-container .fa-diagram-project {
+    top: 35%;
+    right: 35%;
 }
 
-.card-container .fa-bug{
-    top:8%;
+.card-container .fa-bug {
+    top: 8%;
 }
 
-.card-container .fa-cube{
-    top:70%;
+.card-container .fa-cube {
+    top: 70%;
     right: 15%;
 }
 
-.card-container .fa-terminal{
-    top:75%;
+.card-container .fa-terminal {
+    top: 75%;
     right: 37%;
 }
 
-.card-container:hover i{
+.card-container:hover i {
     color: var(--secondary-color);
-    
+
 }
 
-.card-container:hover{
+.card-container:hover {
     box-shadow: var(--secondary-color) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 }
 
-@media screen and (max-width: 600px){
-    .card-container{
-        width:100%;
+@keyframes shine {
+    
+}
+
+@media screen and (max-width: 600px) {
+    .card-container {
+        width: 100%;
         /* z-index: -1; */
     }
 
-    .card-container h2{
-        font-size:1.5rem;
+    .card-container h2 {
+        font-size: 1.5rem;
     }
 
 }
